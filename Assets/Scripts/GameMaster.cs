@@ -9,6 +9,23 @@ public class GameMaster : MonoBehaviour
     bool willMove = false;
     public float moveSpeed = 6.0f;
 
+    
+    private void Update()
+    {
+        if (willMove)
+        {
+            GameObject.Find("RedHero").transform.position = Vector3.MoveTowards(redTransform.position, newRedPosition, moveSpeed * Time.deltaTime);
+        }
+    }
+
+    public void MoveHero(int diceResult)
+    {
+        redTransform = GameObject.Find("RedHero").transform;
+        newRedPosition = new Vector3(redTransform.position.x, redTransform.position.y, redTransform.position.z + (4 * diceResult));
+
+        willMove = true;
+    }
+
     public void RollDice()
     {
         dice.SetActive(true);
@@ -17,17 +34,6 @@ public class GameMaster : MonoBehaviour
 
         diceResultLabel.text = diceResult.ToString();
 
-        redTransform = GameObject.Find("RedHero").transform;
-        newRedPosition = new Vector3(redTransform.position.x, redTransform.position.y, redTransform.position.z + (4 * diceResult));
-
-        willMove = true;
-    }
-
-    private void Update()
-    {
-        if (willMove)
-        {
-            GameObject.Find("RedHero").transform.position = Vector3.MoveTowards(redTransform.position, newRedPosition, moveSpeed * Time.deltaTime);
-        }
+        MoveHero(diceResult);
     }
 }
