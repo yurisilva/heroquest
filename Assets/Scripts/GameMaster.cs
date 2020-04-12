@@ -4,12 +4,13 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     public GameObject dice;
+    public Table table;
+
     Transform redTransform;
     Vector3 newRedPosition;
     bool willMove = false;
     public float moveSpeed = 6.0f;
 
-    
     private void Update()
     {
         if (willMove)
