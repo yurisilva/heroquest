@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
         type: 3}
       propertyPath: m_Name
-      value: HeroOne
+      value: RedHero
       objectReference: {fileID: 0}
     - target: {fileID: 6723310319374834708, guid: 2871b4438c4ce4cf2ae35d540e94825b,
         type: 3}
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 402289645}
   - component: {fileID: 402289644}
   m_Layer: 5
-  m_Name: Red
+  m_Name: RedScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2053,7 +2053,7 @@ GameObject:
   - component: {fileID: 905424977}
   - component: {fileID: 905424976}
   m_Layer: 0
-  m_Name: HeroOneCamera
+  m_Name: RedCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2406,7 +2406,7 @@ GameObject:
   - component: {fileID: 1030155713}
   - component: {fileID: 1030155712}
   m_Layer: 0
-  m_Name: HeroTwoCamera
+  m_Name: BlueCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2681,7 +2681,7 @@ GameObject:
   - component: {fileID: 1119926515}
   - component: {fileID: 1119926514}
   m_Layer: 5
-  m_Name: Blue
+  m_Name: BlueScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2852,7 +2852,7 @@ GameObject:
   - component: {fileID: 1140023546}
   - component: {fileID: 1140023545}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasMainCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4319,7 +4319,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
         type: 3}
       propertyPath: m_Name
-      value: HeroTwo
+      value: BlueHero
       objectReference: {fileID: 0}
     - target: {fileID: 2812322101022521344, guid: 2871b4438c4ce4cf2ae35d540e94825b,
         type: 3}
