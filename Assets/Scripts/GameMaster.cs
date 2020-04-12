@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class RollDice : MonoBehaviour
+public class GameMaster : MonoBehaviour
 {
     public GameObject dice;
     Transform redTransform;
     Vector3 newRedPosition;
+    bool willMove = false;
+    public float moveSpeed = 6.0f;
 
-    public void GetResult()
+    public void RollDice()
     {
         dice.SetActive(true);
         Text diceResultLabel = GameObject.Find("DiceResult").GetComponent<Text>();
@@ -17,10 +19,15 @@ public class RollDice : MonoBehaviour
 
         redTransform = GameObject.Find("RedHero").transform;
         newRedPosition = new Vector3(redTransform.position.x, redTransform.position.y, redTransform.position.z + (4 * diceResult));
+
+        willMove = true;
     }
 
     private void Update()
     {
-        GameObject.Find("RedHero").transform.position = Vector3.Lerp(redTransform.position, newRedPosition, (0.8f)*Time.deltaTime);
+        if (willMove)
+        {
+            GameObject.Find("RedHero").transform.position = Vector3.MoveTowards(redTransform.position, newRedPosition, moveSpeed * Time.deltaTime);
+        }
     }
 }
