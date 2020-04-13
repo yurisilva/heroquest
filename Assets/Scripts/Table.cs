@@ -15,6 +15,7 @@ public class Table
 
     public void SetPlayeOccupyingHouse(int houseIndexOneBased, GameObject player)
     {
+        player.GetComponent<Hero>().houseIndex = houseIndexOneBased;
         player.GetComponent<Hero>().houseName = "H" + houseIndexOneBased.ToString();
         player.transform.forward = HeroHouses[houseIndexOneBased - 1].GetFacingDirection();
         player.transform.position = HeroHouses[houseIndexOneBased - 1].HeroPositionInThisHouse();

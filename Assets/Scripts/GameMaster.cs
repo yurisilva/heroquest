@@ -1,21 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
     public GameObject blue;
     public GameObject red;
-    public string playingHeroName;
+    
     public Dice dice;
     public Table table;
 
-    public int expo;
-
+    string playingHeroName;
     Transform currentTransform;
-    Vector3 newTransformPosition;
-    bool willMove = false;
-    public float moveSpeed = 6.0f;
+    Vector3 newPosition;
+    float moveSpeed = 6.0f;
 
-    private bool debug = true;
+    bool willMove = false;
+    bool debug = true;
 
     void Start()
     {
@@ -27,14 +27,35 @@ public class GameMaster : MonoBehaviour
     {
         if (willMove)
         {
-            GameObject hero = GameObject.Find(playingHeroName);    
-            hero.transform.position = Vector3.MoveTowards(currentTransform.position, newTransformPosition, moveSpeed * Time.deltaTime);
+            if (ThereIsACornerOnTheWay())
+            {
+               
+            }
+            else
+            {
+                GameObject hero = GameObject.Find(playingHeroName);
+                hero.transform.position = Vector3.MoveTowards(currentTransform.position, newPosition, moveSpeed * Time.deltaTime);
+            }
+            
         }
 
-        if(Vector3.Distance(GameObject.Find(playingHeroName).transform.position, newTransformPosition) == 0)
+        if(Vector3.Distance(GameObject.Find(playingHeroName).transform.position, newPosition) == 0)
         {
             TogglePlayer();
         }
+    }
+
+    private bool ThereIsACornerOnTheWay()
+    {
+        var heroPosition = GameObject.Find(playingHeroName).GetComponent<Hero>();
+        if ((heroPosition.houseIndex < 8 && heroPosition.houseIndex + dice.diceResult > 8)
+            || (heroPosition.houseIndex < 15 && heroPosition.houseIndex + dice.diceResult > 15)
+            || (heroPosition.houseIndex < 22 && heroPosition.houseIndex + dice.diceResult > 22)
+            || (heroPosition.houseIndex < 28 && heroPosition.houseIndex + dice.diceResult > 29))
+        {
+            return true;
+        }
+        return false;
     }
 
     private void InitializeBoard()
@@ -57,14 +78,11 @@ public class GameMaster : MonoBehaviour
 
         if (playingHeroName == blue.name)
         {
-            newTransformPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z - (nextHouseDistance * dice.diceResult));
+            newPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z - (nextHouseDistance * dice.diceResult));
         }
         else
         {
-            newTransformPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z + (nextHouseDistance * dice.diceResult));
-
-            //This is how you change the transform to +x
-            //currentTransform.forward = new Vector3(1, 0, 0
+            newPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z + (nextHouseDistance * dice.diceResult));
         }
 
         willMove = true;
