@@ -442,6 +442,12 @@ Transform:
   m_Father: {fileID: 1583530626}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+--- !u!1 &196913963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409632907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &212888907
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +907,12 @@ Transform:
   m_Father: {fileID: 1583530626}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+--- !u!1 &370213390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
+    type: 3}
+  m_PrefabInstance: {fileID: 304331176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &402289642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,7 +1751,6 @@ GameObject:
   - component: {fileID: 752814186}
   - component: {fileID: 752814185}
   - component: {fileID: 752814184}
-  - component: {fileID: 752814187}
   m_Layer: 5
   m_Name: ButtonRollDice
   m_TagString: Untagged
@@ -1810,8 +1821,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 752814187}
+      - m_Target: {fileID: 1300913217}
         m_MethodName: RollDice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 957568027}
+        m_MethodName: MoveHero
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1857,20 +1879,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752814182}
   m_CullTransparentMesh: 0
---- !u!114 &752814187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752814182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d42c36e449bb41b6a1ad349ced93b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dice: {fileID: 1300913212}
-  moveSpeed: 6
 --- !u!1 &818432316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,9 +2360,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 957568026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b892d5ee65c345fabd5a46416e8c542, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d42c36e449bb41b6a1ad349ced93b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blue: {fileID: 196913963}
+  red: {fileID: 370213390}
+  playingHero: {fileID: 0}
+  dice: {fileID: 1300913217}
+  expo: 0
+  moveSpeed: 6
 --- !u!4 &957568028
 Transform:
   m_ObjectHideFlags: 0
@@ -3649,6 +3663,7 @@ GameObject:
   - component: {fileID: 1300913216}
   - component: {fileID: 1300913215}
   - component: {fileID: 1300913214}
+  - component: {fileID: 1300913217}
   m_Layer: 5
   m_Name: Dice
   m_TagString: Untagged
@@ -3755,6 +3770,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300913212}
   m_CullTransparentMesh: 0
+--- !u!114 &1300913217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300913212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5ec6aa2460447b6b7c431d8ea255b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dice: {fileID: 1300913212}
+  diceResult: 0
 --- !u!1 &1321268840
 GameObject:
   m_ObjectHideFlags: 0

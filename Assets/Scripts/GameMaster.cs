@@ -1,40 +1,71 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
-    public GameObject dice;
+    public GameObject blue;
+    public GameObject red;
+    public GameObject playingHero;
+    public Dice dice;
     public Table table;
 
-    Transform redTransform;
-    Vector3 newRedPosition;
+    public int expo;
+
+    Transform currentTransform;
+    Vector3 newTransformPosition;
     bool willMove = false;
     public float moveSpeed = 6.0f;
+
+    private bool debug = false;
+
+    void Start()
+    {
+        InitializeBoard();
+        playingHero = red;
+    }
 
     private void Update()
     {
         if (willMove)
         {
-            GameObject.Find("RedHero").transform.position = Vector3.MoveTowards(redTransform.position, newRedPosition, moveSpeed * Time.deltaTime);
+            playingHero.transform.position = Vector3.MoveTowards(currentTransform.position, newTransformPosition, moveSpeed * Time.deltaTime);
+        }
+
+        if(playingHero.transform.position == newTransformPosition)
+        {
+            TogglePlayer();
         }
     }
 
-    public void MoveHero(int diceResult)
+    private void InitializeBoard()
     {
-        redTransform = GameObject.Find("RedHero").transform;
-        newRedPosition = new Vector3(redTransform.position.x, redTransform.position.y, redTransform.position.z + (4 * diceResult));
+        table = new Table();
+        for (int i = 1; i < 29; i++)
+        {
+            Vector3 vec = table.HeroHouses[i - 1].transform.position;
+            if (debug) Debug.Log(" x:" + vec.x + " y:" + vec.y + " z:" + vec.z);
+        }
+    }
+
+    public void MoveHero()
+    {
+        var nextHouseDistance = 4;
+        currentTransform = playingHero.transform;
+        newTransformPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z + (nextHouseDistance * dice.diceResult));
 
         willMove = true;
     }
 
-    public void RollDice()
+    private void TogglePlayer()
     {
-        dice.SetActive(true);
-        Text diceResultLabel = GameObject.Find("DiceResult").GetComponent<Text>();
-        int diceResult = new System.Random().Next(1, 7);
-
-        diceResultLabel.text = diceResult.ToString();
-
-        MoveHero(diceResult);
+        if (playingHero.name == "RedHero")
+        {
+            playingHero = blue;
+        }
+        else
+        {
+            playingHero = red;
+        }
     }
 }
