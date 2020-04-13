@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
     public GameObject blue;
     public GameObject red;
-    public GameObject playingHero;
+    public string playingHeroName;
     public Dice dice;
     public Table table;
 
@@ -17,22 +15,23 @@ public class GameMaster : MonoBehaviour
     bool willMove = false;
     public float moveSpeed = 6.0f;
 
-    private bool debug = false;
+    private bool debug = true;
 
     void Start()
     {
         InitializeBoard();
-        playingHero = red;
+        SetFirstRound();
     }
 
     private void Update()
     {
         if (willMove)
         {
-            playingHero.transform.position = Vector3.MoveTowards(currentTransform.position, newTransformPosition, moveSpeed * Time.deltaTime);
+            GameObject hero = GameObject.Find(playingHeroName);    
+            hero.transform.position = Vector3.MoveTowards(currentTransform.position, newTransformPosition, moveSpeed * Time.deltaTime);
         }
 
-        if(playingHero.transform.position == newTransformPosition)
+        if(Vector3.Distance(GameObject.Find(playingHeroName).transform.position, newTransformPosition) == 0)
         {
             TogglePlayer();
         }
@@ -41,31 +40,46 @@ public class GameMaster : MonoBehaviour
     private void InitializeBoard()
     {
         table = new Table();
-        for (int i = 1; i < 29; i++)
-        {
-            Vector3 vec = table.HeroHouses[i - 1].transform.position;
-            if (debug) Debug.Log(" x:" + vec.x + " y:" + vec.y + " z:" + vec.z);
-        }
+    }
+
+    private void SetFirstRound()
+    {
+        playingHeroName = red.name;
+
+        table.SetPlayeOccupyingHouse(1, red);
+        table.SetPlayeOccupyingHouse(15, blue);
     }
 
     public void MoveHero()
     {
         var nextHouseDistance = 4;
-        currentTransform = playingHero.transform;
-        newTransformPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z + (nextHouseDistance * dice.diceResult));
+        currentTransform = GameObject.Find(playingHeroName).transform;
+
+        if (playingHeroName == blue.name)
+        {
+            newTransformPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z - (nextHouseDistance * dice.diceResult));
+        }
+        else
+        {
+            newTransformPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z + (nextHouseDistance * dice.diceResult));
+
+            //This is how you change the transform to +x
+            //currentTransform.forward = new Vector3(1, 0, 0
+        }
 
         willMove = true;
     }
 
     private void TogglePlayer()
     {
-        if (playingHero.name == "RedHero")
+        willMove = false;
+        if (playingHeroName == red.name)
         {
-            playingHero = blue;
+            playingHeroName = blue.name;
         }
         else
         {
-            playingHero = red;
+            playingHeroName = red.name;
         }
     }
 }
