@@ -5,6 +5,7 @@ using UnityEngine;
 public class InitializeBoard : MonoBehaviour
 {
     public Table table;
+    private bool debug = false;
 
     void Start()
     {
@@ -12,8 +13,7 @@ public class InitializeBoard : MonoBehaviour
         for (int i = 1; i < 29; i++)
         {
             Vector3 vec = table.HeroHouses[i - 1].transform.position;
-            Debug.Log(" x:" + vec.x + " y:"+ vec.y+ " z:"+ vec.z);
+            if(debug) Debug.Log(" x:" + vec.x + " y:"+ vec.y+ " z:"+ vec.z);
         }
-        Debug.Log(table.HeroHouses.Length);
     }
 }

@@ -4,10 +4,13 @@ public class House
 {
     public Transform transform;
     public Transform heroTransformInThisHouse;
+    public int indexOneBased;
+    public Question question;
 
-    public House(Transform transform)
+    public House(int index, Transform transform)
     {
         this.transform = transform;
+        this.indexOneBased = index;
     }
 
     public Transform HeroTransformInThisHouse()
