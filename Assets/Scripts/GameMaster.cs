@@ -9,12 +9,7 @@ public class GameMaster : MonoBehaviour
     public Table table;
 
     GameObject playingHero;
-    Transform currentTransform;
-    Vector3 newPosition;
     float moveSpeed = 6.0f;
-
-    bool willMove = false;
-    bool debug = true;
 
     void Start()
     {
@@ -22,17 +17,29 @@ public class GameMaster : MonoBehaviour
         SetFirstRound();
     }
 
-    private void Update()
+    public void MoveHero()
     {
-        //move this to Hero class.
-        if (willMove)
-        { 
-            playingHero.transform.position = Vector3.MoveTowards(currentTransform.position, newPosition, moveSpeed * Time.deltaTime);
+        var housesToMove = dice.diceResult;
+
+        while (housesToMove != 0)
+        {
+            playingHero.GetComponent<Hero>().Move(moveSpeed, table.GetHouse(playingHero.GetComponent<Hero>().houseIndex).nextHouse);
+
+            housesToMove--;
         }
 
-        if(Vector3.Distance(playingHero.transform.position, newPosition) == 0)
+        TogglePlayer();
+    }
+
+    private void TogglePlayer()
+    {
+        if (playingHero.name == red.name)
         {
-            TogglePlayer();
+            playingHero = GetPlayingCharacter(blue.name);
+        }
+        else
+        {
+            playingHero = GetPlayingCharacter(red.name);
         }
     }
 
@@ -50,37 +57,10 @@ public class GameMaster : MonoBehaviour
     {
         playingHero = red;
 
-        table.SetPlayeOccupyingHouse(1, red);
-        table.SetPlayeOccupyingHouse(15, blue);
-    }
+        red.GetComponent<Hero>().nextHouse = table.GetHouse(1);
+        blue.GetComponent<Hero>().nextHouse = table.GetHouse(15);
 
-    public void MoveHero()
-    {
-        var nextHouseDistance = 4;
-        currentTransform = playingHero.transform;
-
-        if (playingHero.name == blue.name)
-        {
-            newPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z - (nextHouseDistance * dice.diceResult));
-        }
-        else
-        {
-            newPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z + (nextHouseDistance * dice.diceResult));
-        }
-
-        willMove = true;
-    }
-
-    private void TogglePlayer()
-    {
-        willMove = false;
-        if (playingHero.name == red.name)
-        {
-            playingHero = GetPlayingCharacter(blue.name);
-        }
-        else
-        {
-            playingHero = GetPlayingCharacter(red.name);
-        }
+        table.GetHouse(1).SetPlayerOccupyingHouse(red);
+        table.GetHouse(15).SetPlayerOccupyingHouse(blue);
     }
 }

@@ -9,15 +9,18 @@ public class Table
         HeroHouses = new House[28];
         for (int i = 1; i < 29; i++)
         {
-            HeroHouses[i - 1] = new House(i, GameObject.Find("H" + i.ToString()).transform);
+            var nextHouseIndex = i + 1;
+            if (i == 28) nextHouseIndex = 1;
+
+            var house = GameObject.Find("H" + i.ToString()).GetComponent<House>();
+            house.nextHouse = GameObject.Find("H" + nextHouseIndex.ToString()).GetComponent<House>();
+            house.indexOneBased = i;
+            HeroHouses[i - 1] = house;
         }
     }
 
-    public void SetPlayeOccupyingHouse(int houseIndexOneBased, GameObject player)
+    public House GetHouse(int indexOneBased)
     {
-        player.GetComponent<Hero>().houseIndex = houseIndexOneBased;
-        player.GetComponent<Hero>().houseName = "H" + houseIndexOneBased.ToString();
-        player.transform.forward = HeroHouses[houseIndexOneBased - 1].GetFacingDirection();
-        player.transform.position = HeroHouses[houseIndexOneBased - 1].HeroPositionInThisHouse();
+        return HeroHouses[indexOneBased - 1];
     }
 }

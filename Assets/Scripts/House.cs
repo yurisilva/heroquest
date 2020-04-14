@@ -1,20 +1,36 @@
 ﻿using UnityEngine;
 
-public class House
+public class House : MonoBehaviour
 {
-    public Transform transform;
     public int indexOneBased;
+    public House nextHouse;
     //public Question question; //future stuff
 
-    public House(int index, Transform transform)
+    public House(int index, House nextHouse)
     {
-        this.transform = transform;
-        this.indexOneBased = index;
+        indexOneBased = index;
+        this.nextHouse = nextHouse;
+    }
+
+    public void SetPlayerOccupyingHouse(GameObject player)
+    {
+        player.GetComponent<Hero>().houseIndex = indexOneBased;
+        player.GetComponent<Hero>().houseName = "H" + indexOneBased.ToString();
+        player.transform.forward = GetFacingDirection();
+        player.transform.position = HeroPositionInThisHouse();
+    }
+
+    public void SetPlayerOccupyingHouse(int indexOneBased, GameObject player)
+    {
+        player.GetComponent<Hero>().houseIndex = indexOneBased;
+        player.GetComponent<Hero>().houseName = "H" + indexOneBased.ToString();
+        player.transform.forward = GetFacingDirection();
+        player.transform.position = HeroPositionInThisHouse();
     }
 
     public Vector3 HeroPositionInThisHouse()
     {
-        return new Vector3(this.transform.position.x, this.transform.position.y + 2.4f, this.transform.position.z);
+        return new Vector3(transform.position.x, transform.position.y + 2.4f, transform.position.z);
     }
 
     public Vector3 GetFacingDirection()
