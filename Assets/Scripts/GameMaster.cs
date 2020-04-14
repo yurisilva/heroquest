@@ -13,7 +13,7 @@ public class GameMaster : MonoBehaviour
     void Start()
     {
         Table.InitializeTable();
-        SetFirstRound();
+        PlacePiecesOnTheBoard();
     }
 
     public void MoveHero()
@@ -22,14 +22,17 @@ public class GameMaster : MonoBehaviour
 
         while (housesToMove != 0)
         {
-            playingHero.GetComponent<Hero>().Move(moveSpeed, Table.GetHouse(playingHero.GetComponent<Hero>().houseIndex).nextHouse);
+            playingHero.GetComponent<Hero>().GetComponent<Hero>().Move(moveSpeed, Table.GetHouse(playingHero.GetComponent<Hero>().houseIndex).nextHouse);
             housesToMove--;
         }
-
-        TogglePlayer();
     }
 
-    private void TogglePlayer()
+    public void MoveFamiliar()
+    {
+        playingHero.GetComponent<Hero>().familiar.GetComponent<Familiar>().Move(moveSpeed, dice.diceResult);
+    }
+
+    public void TogglePlayer()
     {
         if (playingHero.name == red.name)
         {
@@ -46,7 +49,7 @@ public class GameMaster : MonoBehaviour
         return name == red.name ? red : blue;
     }
 
-    private void SetFirstRound()
+    private void PlacePiecesOnTheBoard()
     {
         playingHero = red;
 
@@ -55,5 +58,11 @@ public class GameMaster : MonoBehaviour
 
         Table.GetHouse(1).SetPlayerOccupyingHouse(red);
         Table.GetHouse(15).SetPlayerOccupyingHouse(blue);
+
+        red.GetComponent<Hero>().familiar.transform.position = Table.GetFamiliarHouse(1).FamiliarPositionInThisHouse();
+        red.GetComponent<Hero>().familiar.GetComponent<Familiar>().houseModule = 1;
+
+        blue.GetComponent<Hero>().familiar.transform.position = Table.GetFamiliarHouse(7).FamiliarPositionInThisHouse();
+        blue.GetComponent<Hero>().familiar.GetComponent<Familiar>().houseModule = 7;
     }
 }

@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public static class Table
 {
     public static House[] HeroHouses;
+    public static FamiliarHouse[] FamiliarHouses;
 
     public static void InitializeTable()
     {
@@ -17,10 +19,45 @@ public static class Table
             house.indexOneBased = i;
             HeroHouses[i - 1] = house;
         }
+
+        FamiliarHouses = new FamiliarHouse[12];
+        var blueUniqueIndex = 12;
+        for (int i = 1; i < 7; i++)
+        { 
+            var houseRed = GameObject.Find("FR" + i.ToString()).GetComponent<FamiliarHouse>();
+            var houseBlue = GameObject.Find("FB" + i.ToString()).GetComponent<FamiliarHouse>();
+
+            houseRed.module = i;
+            houseBlue.module = i;
+
+            houseRed.uniqueIndex = i;
+            houseBlue.uniqueIndex = blueUniqueIndex;
+            blueUniqueIndex--;
+
+            FamiliarHouses[i - 1] = houseRed;
+            FamiliarHouses[i + 6 - 1] = houseBlue;
+        }
+    }
+
+    public static FamiliarHouse GetFamiliarHouseByName(string houseName)
+    {
+        foreach (var house in FamiliarHouses)
+        {
+            if (house.name == houseName)
+            {
+                return house;
+            }
+        }
+        throw new Exception("Familiar house does not exist.");
     }
 
     public static House GetHouse(int indexOneBased)
     {
         return HeroHouses[indexOneBased - 1];
+    }
+
+    public static FamiliarHouse GetFamiliarHouse(int indexOneBased)
+    {
+        return FamiliarHouses[indexOneBased - 1];
     }
 }

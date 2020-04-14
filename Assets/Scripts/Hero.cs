@@ -5,6 +5,7 @@ public class Hero : MonoBehaviour
     public string houseName;
     public int houseIndex;
     public float moveSpeed;
+    public GameObject familiar;
 
     private bool willMove = false;
     public House nextHouse;
