@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class GameMaster : MonoBehaviour
     public Dice dice;
     public Table table;
 
-    string playingHeroName;
+    GameObject playingHero;
     Transform currentTransform;
     Vector3 newPosition;
     float moveSpeed = 6.0f;
@@ -25,37 +24,21 @@ public class GameMaster : MonoBehaviour
 
     private void Update()
     {
+        //move this to Hero class.
         if (willMove)
-        {
-            if (ThereIsACornerOnTheWay())
-            {
-               
-            }
-            else
-            {
-                GameObject hero = GameObject.Find(playingHeroName);
-                hero.transform.position = Vector3.MoveTowards(currentTransform.position, newPosition, moveSpeed * Time.deltaTime);
-            }
-            
+        { 
+            playingHero.transform.position = Vector3.MoveTowards(currentTransform.position, newPosition, moveSpeed * Time.deltaTime);
         }
 
-        if(Vector3.Distance(GameObject.Find(playingHeroName).transform.position, newPosition) == 0)
+        if(Vector3.Distance(playingHero.transform.position, newPosition) == 0)
         {
             TogglePlayer();
         }
     }
 
-    private bool ThereIsACornerOnTheWay()
+    private GameObject GetPlayingCharacter(string name)
     {
-        var heroPosition = GameObject.Find(playingHeroName).GetComponent<Hero>();
-        if ((heroPosition.houseIndex < 8 && heroPosition.houseIndex + dice.diceResult > 8)
-            || (heroPosition.houseIndex < 15 && heroPosition.houseIndex + dice.diceResult > 15)
-            || (heroPosition.houseIndex < 22 && heroPosition.houseIndex + dice.diceResult > 22)
-            || (heroPosition.houseIndex < 28 && heroPosition.houseIndex + dice.diceResult > 29))
-        {
-            return true;
-        }
-        return false;
+        return name == red.name ? red : blue;
     }
 
     private void InitializeBoard()
@@ -65,7 +48,7 @@ public class GameMaster : MonoBehaviour
 
     private void SetFirstRound()
     {
-        playingHeroName = red.name;
+        playingHero = red;
 
         table.SetPlayeOccupyingHouse(1, red);
         table.SetPlayeOccupyingHouse(15, blue);
@@ -74,9 +57,9 @@ public class GameMaster : MonoBehaviour
     public void MoveHero()
     {
         var nextHouseDistance = 4;
-        currentTransform = GameObject.Find(playingHeroName).transform;
+        currentTransform = playingHero.transform;
 
-        if (playingHeroName == blue.name)
+        if (playingHero.name == blue.name)
         {
             newPosition = new Vector3(currentTransform.position.x, currentTransform.position.y, currentTransform.position.z - (nextHouseDistance * dice.diceResult));
         }
@@ -91,13 +74,13 @@ public class GameMaster : MonoBehaviour
     private void TogglePlayer()
     {
         willMove = false;
-        if (playingHeroName == red.name)
+        if (playingHero.name == red.name)
         {
-            playingHeroName = blue.name;
+            playingHero = GetPlayingCharacter(blue.name);
         }
         else
         {
-            playingHeroName = red.name;
+            playingHero = GetPlayingCharacter(red.name);
         }
     }
 }

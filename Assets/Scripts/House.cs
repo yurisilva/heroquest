@@ -4,7 +4,7 @@ public class House
 {
     public Transform transform;
     public int indexOneBased;
-    public Question question;
+    //public Question question; //future stuff
 
     public House(int index, Transform transform)
     {

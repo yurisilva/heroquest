@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseName: 
+  houseIndex: 0
 --- !u!1 &212888907
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseName: 
+  houseIndex: 0
 --- !u!1 &402289642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,10 +2393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blue: {fileID: 196913963}
   red: {fileID: 370213390}
-  playingHeroName: 
   dice: {fileID: 1300913217}
-  expo: 0
-  moveSpeed: 6
 --- !u!4 &957568028
 Transform:
   m_ObjectHideFlags: 0
@@ -2592,7 +2591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1033139711
 Light:
   m_ObjectHideFlags: 0
