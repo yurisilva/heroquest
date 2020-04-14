@@ -6,14 +6,13 @@ public class GameMaster : MonoBehaviour
     public GameObject red;
     
     public Dice dice;
-    public Table table;
 
     GameObject playingHero;
     float moveSpeed = 6.0f;
 
     void Start()
     {
-        InitializeBoard();
+        Table.InitializeTable();
         SetFirstRound();
     }
 
@@ -23,8 +22,7 @@ public class GameMaster : MonoBehaviour
 
         while (housesToMove != 0)
         {
-            playingHero.GetComponent<Hero>().Move(moveSpeed, table.GetHouse(playingHero.GetComponent<Hero>().houseIndex).nextHouse);
-
+            playingHero.GetComponent<Hero>().Move(moveSpeed, Table.GetHouse(playingHero.GetComponent<Hero>().houseIndex).nextHouse);
             housesToMove--;
         }
 
@@ -48,19 +46,14 @@ public class GameMaster : MonoBehaviour
         return name == red.name ? red : blue;
     }
 
-    private void InitializeBoard()
-    {
-        table = new Table();
-    }
-
     private void SetFirstRound()
     {
         playingHero = red;
 
-        red.GetComponent<Hero>().nextHouse = table.GetHouse(1);
-        blue.GetComponent<Hero>().nextHouse = table.GetHouse(15);
+        red.GetComponent<Hero>().nextHouse = Table.GetHouse(1);
+        blue.GetComponent<Hero>().nextHouse = Table.GetHouse(15);
 
-        table.GetHouse(1).SetPlayerOccupyingHouse(red);
-        table.GetHouse(15).SetPlayerOccupyingHouse(blue);
+        Table.GetHouse(1).SetPlayerOccupyingHouse(red);
+        Table.GetHouse(15).SetPlayerOccupyingHouse(blue);
     }
 }

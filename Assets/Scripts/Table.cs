@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class Table
+public static class Table
 {
-    public House[] HeroHouses;
+    public static House[] HeroHouses;
 
-    public Table()
+    public static void InitializeTable()
     {
         HeroHouses = new House[28];
         for (int i = 1; i < 29; i++)
@@ -19,7 +19,7 @@ public class Table
         }
     }
 
-    public House GetHouse(int indexOneBased)
+    public static House GetHouse(int indexOneBased)
     {
         return HeroHouses[indexOneBased - 1];
     }
