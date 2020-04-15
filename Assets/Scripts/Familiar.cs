@@ -2,7 +2,6 @@
 
 public class Familiar : MonoBehaviour
 {
-    public int houseModule;
     public GameObject opposingFamiliar;
     public float moveSpeed;
     public bool willMove = false;
@@ -33,7 +32,6 @@ public class Familiar : MonoBehaviour
             {
                 willMove = false;
             }
-
         }
     }
 }
