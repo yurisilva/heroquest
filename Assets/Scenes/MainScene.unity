@@ -511,6 +511,8 @@ MonoBehaviour:
   houseIndex: 0
   moveSpeed: 0
   familiar: {fileID: 2042387794}
+  housesToMove: 0
+  willMove: 0
   nextHouse: {fileID: 0}
 --- !u!1 &212888907
 GameObject:
@@ -1039,6 +1041,8 @@ MonoBehaviour:
   houseIndex: 0
   moveSpeed: 0
   familiar: {fileID: 1761600511}
+  housesToMove: 0
+  willMove: 0
   nextHouse: {fileID: 0}
 --- !u!1 &402289642
 GameObject:
@@ -5954,8 +5958,6 @@ GameObject:
   - component: {fileID: 1761600516}
   - component: {fileID: 1761600515}
   - component: {fileID: 1761600514}
-  - component: {fileID: 1761600513}
-  - component: {fileID: 1761600512}
   - component: {fileID: 1761600517}
   m_Layer: 0
   m_Name: RedFamiliar
@@ -5964,35 +5966,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1761600512
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761600511}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &1761600513
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761600511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1761600514
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6067,7 +6040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca9baac225ac48e2a300c6bf6518142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseModule: 0
   opposingFamiliar: {fileID: 2042387794}
   moveSpeed: 0
   willMove: 0
@@ -6592,8 +6564,6 @@ GameObject:
   - component: {fileID: 2042387799}
   - component: {fileID: 2042387798}
   - component: {fileID: 2042387797}
-  - component: {fileID: 2042387796}
-  - component: {fileID: 2042387795}
   - component: {fileID: 2042387800}
   m_Layer: 0
   m_Name: BlueFamiliar
@@ -6602,35 +6572,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &2042387795
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042387794}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &2042387796
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042387794}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2042387797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6705,7 +6646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca9baac225ac48e2a300c6bf6518142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseModule: 0
   opposingFamiliar: {fileID: 1761600511}
   moveSpeed: 0
   willMove: 0
