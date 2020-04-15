@@ -5,6 +5,8 @@ public static class Table
 {
     public static House[] HeroHouses;
     public static FamiliarHouse[] FamiliarHouses;
+    public static bool heroMoving = false;
+    public static bool familiarMoving = false;
 
     public static void InitializeTable()
     {

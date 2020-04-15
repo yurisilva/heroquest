@@ -6,13 +6,18 @@ public class Dice : MonoBehaviour
 {
     public GameObject dice;
     public int diceResult;
+    public Text prompt;
+
+    private int i = 0;
+    private int[] list = new int[3] { 6,6,2 };
 
     public void RollDice()
     {
         dice.SetActive(true);
+        //diceResult = list[i];
+        //i++;
         diceResult = new System.Random().Next(1, 7);
 
-        Text diceResultLabel = GameObject.Find("DiceResult").GetComponent<Text>();
-        diceResultLabel.text = diceResult.ToString();
+        prompt.text = diceResult.ToString();
     }
 }

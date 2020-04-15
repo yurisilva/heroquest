@@ -54,6 +54,9 @@ public class GameMaster : MonoBehaviour
         blue.GetComponent<Hero>().nextHouse = Table.GetHouse(16);
 
         red.GetComponent<Hero>().familiar.transform.position = Table.GetFamiliarHouse(1).FamiliarPositionInThisHouse();
+        red.GetComponent<Hero>().familiar.GetComponent<Familiar>().houseUniqueIndex = Table.GetFamiliarHouse(1).GetComponent<FamiliarHouse>().uniqueIndex;
+
         blue.GetComponent<Hero>().familiar.transform.position = Table.GetFamiliarHouse(1).opposingHouse.FamiliarPositionInThisHouse();
+        blue.GetComponent<Hero>().familiar.GetComponent<Familiar>().houseUniqueIndex = Table.GetFamiliarHouse(1).opposingHouse.GetComponent<FamiliarHouse>().uniqueIndex;
     }
 }

@@ -4,7 +4,7 @@ public class House : MonoBehaviour
 {
     public int indexOneBased;
     public House nextHouse;
-    //public Question question; //future stuff
+    public int familiarHouseUniqueIndex;
 
     public House(int index, House nextHouse)
     {
