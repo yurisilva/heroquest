@@ -8,22 +8,17 @@ public static class Table
 
     public static void InitializeTable()
     {
-        HeroHouses = new House[28];
-        for (int i = 1; i < 29; i++)
-        {
-            var nextHouseIndex = i + 1;
-            if (i == 28) nextHouseIndex = 1;
+        InitializeHeroHouses();
+        InitializeFamiliarHouses();
+        
+    }
 
-            var house = GameObject.Find("H" + i.ToString()).GetComponent<House>();
-            house.nextHouse = GameObject.Find("H" + nextHouseIndex.ToString()).GetComponent<House>();
-            house.indexOneBased = i;
-            HeroHouses[i - 1] = house;
-        }
-
+    private static void InitializeFamiliarHouses()
+    {
         FamiliarHouses = new FamiliarHouse[12];
         var blueUniqueIndex = 12;
         for (int i = 1; i < 7; i++)
-        { 
+        {
             var houseRed = GameObject.Find("FR" + i.ToString()).GetComponent<FamiliarHouse>();
             var houseBlue = GameObject.Find("FB" + i.ToString()).GetComponent<FamiliarHouse>();
 
@@ -36,6 +31,34 @@ public static class Table
 
             FamiliarHouses[i - 1] = houseRed;
             FamiliarHouses[i + 6 - 1] = houseBlue;
+        }
+
+        SetOpposingHouses();
+    }
+
+    private static void SetOpposingHouses()
+    {
+        var upperHouses = 11;
+        for (int i = 0; i < 6; i++)
+        {
+            FamiliarHouses[i].opposingHouse = FamiliarHouses[upperHouses];
+            FamiliarHouses[upperHouses].opposingHouse = FamiliarHouses[i];
+            upperHouses--;
+        }
+    }
+
+    private static void InitializeHeroHouses()
+    {
+        HeroHouses = new House[28];
+        for (int i = 1; i < 29; i++)
+        {
+            var nextHouseIndex = i + 1;
+            if (i == 28) nextHouseIndex = 1;
+
+            var house = GameObject.Find("H" + i.ToString()).GetComponent<House>();
+            house.nextHouse = GameObject.Find("H" + nextHouseIndex.ToString()).GetComponent<House>();
+            house.indexOneBased = i;
+            HeroHouses[i - 1] = house;
         }
     }
 
