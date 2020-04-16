@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class QuestionHandler
@@ -29,6 +30,8 @@ public static class QuestionHandler
             answers.Add(new Answer(lineSplit[2]));
             answers.Add(new Answer(lineSplit[3]));
             answers.Add(new Answer(lineSplit[4]));
+
+            answers = answers.OrderBy(x => Random.value).ToList();
 
             questions.Add(new Question(lineSplit[0], answers));
         }

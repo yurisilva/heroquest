@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
@@ -24,7 +25,16 @@ public class Hero : MonoBehaviour
         if (housesToMove == 0 && familiar.GetComponent<Familiar>().familiarWillMove == false) 
         {
             CheckForEnemyFamiliar();
+            GetQuestion(houseIndex);
         }
+    }
+
+    private void GetQuestion(int houseIndex)
+    {
+        //todo change camera to face player.
+        Table.GetHouseQuestion(houseIndex);
+
+        //todo change camera to show board again.
     }
 
     void Update()
