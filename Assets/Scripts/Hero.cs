@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Hero : MonoBehaviour
     public House nextHouse;
     public string houseName;
     public int houseIndex;
+    public bool hasMessage = false;
+    public string message = "";
 
     private float moveSpeed;
     private int housesToMove;
@@ -17,6 +20,11 @@ public class Hero : MonoBehaviour
         this.moveSpeed = moveSpeed;
         nextHouse = Table.GetHouse(gameObject.GetComponent<Hero>().houseIndex).nextHouse;
         heroWillMove = housesToMove > 0;
+
+        if (housesToMove == 0 && familiar.GetComponent<Familiar>().familiarWillMove == false) 
+        {
+            CheckForEnemyFamiliar();
+        }
     }
 
     void Update()
@@ -32,7 +40,18 @@ public class Hero : MonoBehaviour
                 nextHouse.SetPlayerOccupyingHouse(gameObject);
                 Move(moveSpeed, housesToMove);
             }
+        }
+    }
 
+    public void CheckForEnemyFamiliar()
+    {
+        var houseZone = Table.GetHouse(houseIndex).GetComponent<House>().familiarHouseUniqueIndex;
+        var enemyFamiliarHouseZone = familiar.GetComponent<Familiar>().opposingFamiliar.GetComponent<Familiar>().houseUniqueIndex;
+
+        if (houseZone == enemyFamiliarHouseZone) 
+        {
+            hasMessage = true;
+            message ="Your hero landed in the enemy's familiar zone. You got attacked.";
         }
     }
 }

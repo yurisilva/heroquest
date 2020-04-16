@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
     public GameObject blue;
     public GameObject red;
-    
+    public GameObject prompt;
+
     public Dice dice;
 
     GameObject playingHero;
@@ -14,6 +16,23 @@ public class GameMaster : MonoBehaviour
     {
         Table.InitializeTable();
         PlacePiecesOnTheBoard();
+    }
+
+    void Update()
+    {
+        if (red.GetComponent<Hero>().hasMessage)
+        {
+            red.GetComponent<Hero>().hasMessage = false;
+            prompt.GetComponent<Text>().text = red.GetComponent<Hero>().message;
+            prompt.SetActive(true);
+        }
+
+        if (blue.GetComponent<Hero>().hasMessage)
+        {
+            blue.GetComponent<Hero>().hasMessage = false;
+            prompt.GetComponent<Text>().text = blue.GetComponent<Hero>().message;
+            prompt.SetActive(true);
+        }
     }
 
     public void MoveHero()

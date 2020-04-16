@@ -9,14 +9,14 @@ public class Dice : MonoBehaviour
     public Text prompt;
 
     private int i = 0;
-    private int[] list = new int[3] { 6,6,2 };
+    private int[] list = new int[5] { 6,6,1,6,1 };
 
     public void RollDice()
     {
         dice.SetActive(true);
-        //diceResult = list[i];
-        //i++;
-        diceResult = new System.Random().Next(1, 7);
+        diceResult = list[i];
+        i++;
+        //diceResult = new System.Random().Next(1, 7);
 
         prompt.text = diceResult.ToString();
     }

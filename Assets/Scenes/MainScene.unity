@@ -301,7 +301,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Your hero landed in the enemy''s familiar zone.
 
-    You  got attacked.'
+    You got attacked.'
 --- !u!222 &39411985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -593,6 +593,8 @@ MonoBehaviour:
   nextHouse: {fileID: 0}
   houseName: 
   houseIndex: 0
+  hasMessage: 0
+  message: 
 --- !u!1 &212888907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1125,8 @@ MonoBehaviour:
   nextHouse: {fileID: 0}
   houseName: 
   houseIndex: 0
+  hasMessage: 0
+  message: 
 --- !u!1 &402289642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blue: {fileID: 196913963}
   red: {fileID: 370213390}
+  prompt: {fileID: 39411982}
   dice: {fileID: 1300913217}
 --- !u!4 &957568028
 Transform:
@@ -6130,7 +6135,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761600511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -12.047, y: 2.51, z: -12.47}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_Children:
@@ -6154,6 +6159,7 @@ MonoBehaviour:
   moveSpeed: 0
   houseUniqueIndex: 0
   houseToMoveTo: {fileID: 0}
+  familiarWillMove: 0
 --- !u!1 &1792343764
 GameObject:
   m_ObjectHideFlags: 0
@@ -6740,7 +6746,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042387794}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 25.27, y: 1.72, z: -6}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_Children:
@@ -6764,6 +6770,7 @@ MonoBehaviour:
   moveSpeed: 0
   houseUniqueIndex: 0
   houseToMoveTo: {fileID: 0}
+  familiarWillMove: 0
 --- !u!1 &2097744118
 GameObject:
   m_ObjectHideFlags: 0

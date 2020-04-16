@@ -7,7 +7,8 @@ public class Familiar : MonoBehaviour
     public int houseUniqueIndex;
     public FamiliarHouse houseToMoveTo;
 
-    private bool familiarWillMove = false;
+    private Vector3 posLastFrame = new Vector3(0,0,0);
+    public bool familiarWillMove = false;
 
     public void Move(float moveSpeed, int diceResult)
     {
@@ -26,12 +27,12 @@ public class Familiar : MonoBehaviour
                                                                       houseToMoveTo.opposingHouse.FamiliarPositionInThisHouse(),
                                                                       moveSpeed * Time.deltaTime);
 
-            //Debug.Log(Vector3.Distance(transform.position, houseToMoveTo.GetComponent<FamiliarHouse>().FamiliarPositionInThisHouse()));
-            //todo ynfs Distance compares world-relative position with Familiar object's relative position, thus movement never ends.
-            if (Vector3.Distance(transform.position, houseToMoveTo.GetComponent<FamiliarHouse>().FamiliarPositionInThisHouse()) == 0)
+            if (transform.position == posLastFrame)
             {
                 familiarWillMove = false;
             }
+
         }
+        posLastFrame = transform.position;
     }
 }
