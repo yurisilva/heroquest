@@ -12,7 +12,11 @@ public static class Table
     {
         InitializeHeroHouses();
         InitializeFamiliarHouses();
-        
+    }
+
+    public static void GetHouseQuestion(int indexOneBased)
+    {
+        //todo: get house question when player lands;
     }
 
     private static void InitializeFamiliarHouses()

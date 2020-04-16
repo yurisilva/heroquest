@@ -6,7 +6,6 @@ public class GameMaster : MonoBehaviour
     public GameObject blue;
     public GameObject red;
     public GameObject prompt;
-
     public Dice dice;
 
     GameObject playingHero;
@@ -16,6 +15,13 @@ public class GameMaster : MonoBehaviour
     {
         Table.InitializeTable();
         PlacePiecesOnTheBoard();
+        LoadQuestions();
+    }
+
+    private void LoadQuestions()
+    {
+        TextAsset textFile = Resources.Load<TextAsset>("questions");
+        QuestionHandler.AssignQuestionsToHouses(textFile);
     }
 
     void Update()
