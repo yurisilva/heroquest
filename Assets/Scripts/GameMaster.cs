@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
@@ -8,12 +9,20 @@ public class GameMaster : MonoBehaviour
     public GameObject prompt;
     public Dice dice;
 
+    public Camera mainCamera;
+    public Camera redCamera;
+    public Camera redFamiliarCamera;
+    public Camera blueCamera;
+    public Camera blueFamiliarCamera;
+    private Camera[] cameras = new Camera[5];
+
     GameObject playingHero;
     float moveSpeed = 6.0f;
 
     void Start()
     {
         Table.InitializeTable();
+        LoadCameras();
         PlacePiecesOnTheBoard();
         LoadQuestions();
     }
@@ -39,10 +48,40 @@ public class GameMaster : MonoBehaviour
             prompt.GetComponent<Text>().text = blue.GetComponent<Hero>().message;
             prompt.SetActive(true);
         }
+
+        if (red.GetComponent<Hero>().requestsCamera)
+        {
+            StartCoroutine(ChangeCamera(CameraEnum.Red));
+        }
+    }
+
+    private IEnumerator ChangeCamera(CameraEnum cameraName)
+    {
+        red.GetComponent<Hero>().requestsCamera = false;
+        yield return new WaitForSeconds(2);
+        //mainCamera.enabled = false;
+        switch (cameraName)
+        {
+            case CameraEnum.Red:
+                redCamera.enabled = true;
+                break;
+            case CameraEnum.RedFamiliar:
+                redFamiliarCamera.enabled = true;
+                break;
+            case CameraEnum.Blue:
+                blueCamera.enabled = true;
+                break;
+            case CameraEnum.BlueFamiliar:
+                blueFamiliarCamera.enabled = true;
+                break;
+            default:
+                mainCamera.enabled = true;
+                break;
+        }
     }
 
     public void MoveHero()
-    { 
+    {
         playingHero.GetComponent<Hero>().GetComponent<Hero>().Move(moveSpeed, dice.diceResult);
     }
 
@@ -83,5 +122,21 @@ public class GameMaster : MonoBehaviour
 
         blue.GetComponent<Hero>().familiar.transform.position = Table.GetFamiliarHouse(1).opposingHouse.FamiliarPositionInThisHouse();
         blue.GetComponent<Hero>().familiar.GetComponent<Familiar>().houseUniqueIndex = Table.GetFamiliarHouse(1).opposingHouse.GetComponent<FamiliarHouse>().uniqueIndex;
+    }
+
+    private void LoadCameras()
+    {
+        cameras[0] = mainCamera;
+        cameras[1] = redCamera;
+        cameras[2] = redFamiliarCamera;
+        cameras[3] = blueCamera;
+        cameras[4] = blueFamiliarCamera;
+
+        foreach (var cam in cameras)
+        {
+            cam.enabled = false;
+        }
+
+        mainCamera.enabled = true;
     }
 }

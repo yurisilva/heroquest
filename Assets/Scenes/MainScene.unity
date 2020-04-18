@@ -593,6 +593,7 @@ MonoBehaviour:
   nextHouse: {fileID: 0}
   houseName: 
   houseIndex: 0
+  requestsCamera: 0
   hasMessage: 0
   message: 
 --- !u!1 &212888907
@@ -1125,6 +1126,7 @@ MonoBehaviour:
   nextHouse: {fileID: 0}
   houseName: 
   houseIndex: 0
+  requestsCamera: 0
   hasMessage: 0
   message: 
 --- !u!1 &402289642
@@ -1216,7 +1218,7 @@ GameObject:
   - component: {fileID: 425051469}
   - component: {fileID: 425051468}
   m_Layer: 0
-  m_Name: FamiliarTwoCamera
+  m_Name: BlueFamiliarCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2606,7 +2608,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -2881,6 +2883,11 @@ MonoBehaviour:
   red: {fileID: 370213390}
   prompt: {fileID: 39411982}
   dice: {fileID: 1300913217}
+  mainCamera: {fileID: 963194227}
+  redCamera: {fileID: 905424977}
+  redFamiliarCamera: {fileID: 1443060843}
+  blueCamera: {fileID: 1030155713}
+  blueFamiliarCamera: {fileID: 425051469}
 --- !u!4 &957568028
 Transform:
   m_ObjectHideFlags: 0
@@ -5172,7 +5179,7 @@ GameObject:
   - component: {fileID: 1443060843}
   - component: {fileID: 1443060842}
   m_Layer: 0
-  m_Name: FamiliarOneCamera
+  m_Name: RedFamiliarCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

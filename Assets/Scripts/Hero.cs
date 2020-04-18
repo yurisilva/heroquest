@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
@@ -8,6 +6,8 @@ public class Hero : MonoBehaviour
     public House nextHouse;
     public string houseName;
     public int houseIndex;
+
+    public bool requestsCamera = false;
     public bool hasMessage = false;
     public string message = "";
 
@@ -26,15 +26,13 @@ public class Hero : MonoBehaviour
         {
             CheckForEnemyFamiliar();
             GetQuestion(houseIndex);
+            requestsCamera = true;
         }
     }
 
     private void GetQuestion(int houseIndex)
     {
-        //todo change camera to face player.
         Table.GetHouseQuestion(houseIndex);
-
-        //todo change camera to show board again.
     }
 
     void Update()
