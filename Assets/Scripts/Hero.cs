@@ -27,19 +27,21 @@ public class Hero : MonoBehaviour
         if (housesToMove == 0 && familiar.GetComponent<Familiar>().familiarWillMove == false) 
         {
             CheckForEnemyFamiliar();
-            GetQuestion(houseIndex);
+            LoadQuestionFromHouseIntoQuestionCanvas(houseIndex);
             requestsCamera = true;
         }
     }
 
-    private void GetQuestion(int houseIndex)
+    private void LoadQuestionFromHouseIntoQuestionCanvas(int houseIndex)
     {
         Question question = Table.GetHouseQuestion(houseIndex);
+
         gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = question.prompt;
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[0]; 
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[1]; 
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[2]; 
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[3];
+
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[0]);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[1]);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[2]);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[3]);
     }
 
     void Update()

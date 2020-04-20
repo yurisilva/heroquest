@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,19 +59,25 @@ public class GameMaster : MonoBehaviour
 
         if (blue.GetComponent<Hero>().requestsCamera)
         {
-            StartCoroutine(ChangeCameraFocusTo(CameraEnum.Red));
+            StartCoroutine(ChangeCameraFocusTo(CameraEnum.Blue));
         }
 
-        //if (red.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver || blue.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver)
         if (playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver)
         {
-            //red.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver = false;
-            //blue.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver = false;
             playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver = false;
             StartCoroutine(ChangeCameraFocusTo(CameraEnum.Main));
             buttonRollDice.enabled = true;
             TogglePlayer();
         }
+    }
+
+    private void UnloadQuestionCanvas()
+    {
+        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = string.Empty;
+        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
+        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
+        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
+        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
     }
 
     private IEnumerator ChangeCameraFocusTo(CameraEnum cameraName)
@@ -103,6 +110,7 @@ public class GameMaster : MonoBehaviour
             default:
                 red.GetComponent<Hero>().questionCanvas.SetActive(false);
                 blue.GetComponent<Hero>().questionCanvas.SetActive(false);
+                enabledCamera = mainCamera;
                 mainCamera.enabled = true;
                 break;
         }
@@ -120,7 +128,7 @@ public class GameMaster : MonoBehaviour
     }
 
     public void TogglePlayer()
-    {
+    { 
         if (playingHero.name == red.name)
         {
             playingHero = GetPlayingCharacter(blue.name);

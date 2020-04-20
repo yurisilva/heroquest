@@ -571,7 +571,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 11
-  question: {fileID: 0}
 --- !u!1 &196913963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
@@ -817,7 +816,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 1
-  question: {fileID: 0}
 --- !u!1001 &304331176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1107,7 +1105,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 10
-  question: {fileID: 0}
 --- !u!1 &370213390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
@@ -1285,7 +1282,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 4
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -1720,16 +1717,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 559978520}
+      objectReference: {fileID: 559978549}
     - target: {fileID: 421320382169125303, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: CheckAnswer
       objectReference: {fileID: 0}
     - target: {fileID: 421320382169125303, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 421320382169125303, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
@@ -1920,7 +1917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!114 &559978547
 MonoBehaviour:
@@ -1934,7 +1930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!114 &559978548
 MonoBehaviour:
@@ -1948,7 +1943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!114 &559978549
 MonoBehaviour:
@@ -1962,7 +1956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!1 &593310232
 GameObject:
@@ -2073,7 +2066,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 6
-  question: {fileID: 0}
 --- !u!1 &602004931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2175,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 2
-  question: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,7 +2376,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 10
-  question: {fileID: 0}
 --- !u!1 &711609746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,7 +2745,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 2
-  question: {fileID: 0}
 --- !u!1 &822221749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,7 +3048,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 3
-  question: {fileID: 0}
 --- !u!1 &919471096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,7 +3157,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 5
-  question: {fileID: 0}
 --- !u!1 &957568026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3369,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -3769,7 +3756,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 6
-  question: {fileID: 0}
 --- !u!1 &1140023544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +3968,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 7
-  question: {fileID: 0}
 --- !u!1 &1209274151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,7 +4187,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 5
-  question: {fileID: 0}
 --- !u!1 &1235324486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,7 +4595,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 8
-  question: {fileID: 0}
 --- !u!1 &1300913212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,7 +4838,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 1
-  question: {fileID: 0}
 --- !u!1 &1322312440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,7 +4947,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 8
-  question: {fileID: 0}
 --- !u!1 &1338632979
 GameObject:
   m_ObjectHideFlags: 0
@@ -5295,7 +5276,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 12
-  question: {fileID: 0}
 --- !u!1 &1395649802
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,7 +5549,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 3
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -5687,7 +5667,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 3
-  question: {fileID: 0}
 --- !u!1 &1458154821
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,7 +5868,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 4
-  question: {fileID: 0}
 --- !u!1 &1476025482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,7 +5977,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
-  question: {fileID: 0}
 --- !u!1001 &1502208564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6356,7 +6333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!114 &1502208596
 MonoBehaviour:
@@ -6370,7 +6346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!114 &1502208597
 MonoBehaviour:
@@ -6384,7 +6359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!114 &1502208598
 MonoBehaviour:
@@ -6398,7 +6372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a27b116b996646128305ab8aa331119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 0}
   isRightAnswer: 0
 --- !u!1 &1512205800
 GameObject:
@@ -6509,7 +6482,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
-  question: {fileID: 0}
 --- !u!1 &1554793278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,7 +6591,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 4
-  question: {fileID: 0}
 --- !u!1 &1558547942
 GameObject:
   m_ObjectHideFlags: 0
@@ -6819,7 +6790,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 7
-  question: {fileID: 0}
 --- !u!1 &1696593126
 GameObject:
   m_ObjectHideFlags: 0
@@ -6929,7 +6899,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 11
-  question: {fileID: 0}
 --- !u!4 &1710286550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2871b4438c4ce4cf2ae35d540e94825b,
@@ -7220,7 +7189,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 9
-  question: {fileID: 0}
 --- !u!1 &1972257312
 GameObject:
   m_ObjectHideFlags: 0
@@ -7330,7 +7298,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
-  question: {fileID: 0}
 --- !u!1 &1980678983
 GameObject:
   m_ObjectHideFlags: 0
@@ -7440,7 +7407,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 9
-  question: {fileID: 0}
 --- !u!1 &2004315337
 GameObject:
   m_ObjectHideFlags: 0
@@ -7550,7 +7516,6 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 12
-  question: {fileID: 0}
 --- !u!1 &2042387794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7758,4 +7723,3 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
-  question: {fileID: 0}

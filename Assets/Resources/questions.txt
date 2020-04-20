@@ -14,7 +14,7 @@ What do the numbers add up to on the opposite sides of a dice?,7,6,10,5
 In the zodiac, which animal is linked with Capricorn?,Goat,Tiger,Dragon,Crab
 In Spain what is the word for an afternoon nap?,Siesta,Fiesta,Nap,Sena
 Which substance is most used for pencil lead?,Graphite,Diamond,Coper,Wood
-In Shakespeare’s “Othello”, who is the female lead?,Desdemona,Juliet,Elizabeth,Dora
+In Shakespeare’s “Othello” who is the female lead?,Desdemona,Juliet,Elizabeth,Dora
 Venetian blinds originated in which country?,Persia,The UK,India,Italy
 In Which century was 1658?,17th,16th,18th,15th
 How many stomachs does a cow have?,4,3,2,1

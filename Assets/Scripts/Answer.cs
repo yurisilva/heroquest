@@ -1,7 +1,4 @@
-﻿
-using UnityEngine;
-
-public class Answer : MonoBehaviour
+﻿public class Answer
 {
     public string text;
     public bool isRightAnswer;
