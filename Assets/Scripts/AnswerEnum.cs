@@ -1,0 +1,6 @@
+﻿public enum AnswerEnum
+{
+    ANSWERED_INCORRECTLY = 0,
+    ANSWERED_CORRECTLY,
+    NOT_ANSWERED_YET
+}

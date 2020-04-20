@@ -87,6 +87,13 @@ public static class Table
 
     public static FamiliarHouse GetFamiliarHouse(int indexOneBased)
     {
-        return FamiliarHouses[indexOneBased - 1];
+        foreach (var house in FamiliarHouses)
+        {
+            if (house.uniqueIndex == indexOneBased)
+            {
+                return house;
+            }
+        }
+        throw new Exception("Familiar house does not exist.");
     }
 }

@@ -26,11 +26,13 @@ public class AnswerButton : MonoBehaviour
     {
         if (isRightAnswer)
         {
-            gameObject.GetComponent<Image>().color = new Color32(0, 255, 0, 100); 
+            gameObject.GetComponent<Image>().color = new Color32(0, 255, 0, 100);
+            gameObject.GetComponentInParent<QuestionCanvas>().gotAnswerRight = AnswerEnum.ANSWERED_CORRECTLY;
         }
         else
         {
             gameObject.GetComponent<Image>().color = new Color32(255, 0, 0, 100);
+            gameObject.GetComponentInParent<QuestionCanvas>().gotAnswerRight = AnswerEnum.ANSWERED_INCORRECTLY;
         }
 
         endTurn = true;

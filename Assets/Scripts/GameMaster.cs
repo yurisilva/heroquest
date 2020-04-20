@@ -17,7 +17,10 @@ public class GameMaster : MonoBehaviour
     public Camera redFamiliarCamera;
     public Camera blueCamera;
     public Camera blueFamiliarCamera;
+
     private Camera[] cameras = new Camera[5];
+    private bool playerWillGoBack = false;
+    private string playerToGoBack;
 
     GameObject playingHero;
     float moveSpeed = 6.0f;
@@ -69,15 +72,20 @@ public class GameMaster : MonoBehaviour
             buttonRollDice.enabled = true;
             TogglePlayer();
         }
-    }
 
-    private void UnloadQuestionCanvas()
-    {
-        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = string.Empty;
-        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
-        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
-        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
-        playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = null;
+        if (playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().gotAnswerRight == AnswerEnum.ANSWERED_INCORRECTLY)
+        {
+            playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().gotAnswerRight = AnswerEnum.NOT_ANSWERED_YET;
+            playerWillGoBack = true;
+            playerToGoBack = playingHero.name;
+            playingHero.GetComponent<Hero>().score -= 1;
+        }
+
+        if (playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().gotAnswerRight == AnswerEnum.ANSWERED_CORRECTLY)
+        {
+            playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().gotAnswerRight = AnswerEnum.NOT_ANSWERED_YET;
+            playingHero.GetComponent<Hero>().score += Table.GetFamiliarHouse(Table.GetHouse(playingHero.GetComponent<Hero>().houseIndex).familiarHouseUniqueIndex).module;
+        }
     }
 
     private IEnumerator ChangeCameraFocusTo(CameraEnum cameraName)
@@ -108,6 +116,12 @@ public class GameMaster : MonoBehaviour
                 blueFamiliarCamera.enabled = true;
                 break;
             default:
+                if (playerWillGoBack)
+                {
+                    playerWillGoBack = false;
+                    var player = playerToGoBack == red.name ? red : blue;
+                    Table.GetHouse(player.GetComponent<Hero>().lastHouseIndex).SetPlayerOccupyingHouse(player);
+                }
                 red.GetComponent<Hero>().questionCanvas.SetActive(false);
                 blue.GetComponent<Hero>().questionCanvas.SetActive(false);
                 enabledCamera = mainCamera;
@@ -119,6 +133,7 @@ public class GameMaster : MonoBehaviour
     public void MoveHero()
     {
         buttonRollDice.enabled = false;
+        playingHero.GetComponent<Hero>().GetComponent<Hero>().lastHouseIndex = playingHero.GetComponent<Hero>().houseIndex;
         playingHero.GetComponent<Hero>().GetComponent<Hero>().Move(moveSpeed, dice.diceResult);
     }
 
@@ -150,6 +165,9 @@ public class GameMaster : MonoBehaviour
 
         Table.GetHouse(1).SetPlayerOccupyingHouse(red);
         Table.GetHouse(15).SetPlayerOccupyingHouse(blue);
+
+        red.GetComponent<Hero>().lastHouseIndex = 1;
+        blue.GetComponent<Hero>().lastHouseIndex = 15;
 
         red.GetComponent<Hero>().nextHouse = Table.GetHouse(2);
         blue.GetComponent<Hero>().nextHouse = Table.GetHouse(16);

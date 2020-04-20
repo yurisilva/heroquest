@@ -8,6 +8,8 @@ public class Hero : MonoBehaviour
     public string houseName;
     public int houseIndex;
     public GameObject questionCanvas;
+    public int score;
+    public int lastHouseIndex;
 
     public bool requestsCamera = false;
     public bool hasMessage = false;
@@ -17,31 +19,9 @@ public class Hero : MonoBehaviour
     private int housesToMove;
     private bool heroWillMove = false;
 
-    public void Move(float moveSpeed, int housesToMove)
+    void Start()
     {
-        this.housesToMove = housesToMove;
-        this.moveSpeed = moveSpeed;
-        nextHouse = Table.GetHouse(gameObject.GetComponent<Hero>().houseIndex).nextHouse;
-        heroWillMove = housesToMove > 0;
-
-        if (housesToMove == 0 && familiar.GetComponent<Familiar>().familiarWillMove == false) 
-        {
-            CheckForEnemyFamiliar();
-            LoadQuestionFromHouseIntoQuestionCanvas(houseIndex);
-            requestsCamera = true;
-        }
-    }
-
-    private void LoadQuestionFromHouseIntoQuestionCanvas(int houseIndex)
-    {
-        Question question = Table.GetHouseQuestion(houseIndex);
-
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = question.prompt;
-
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[0]);
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[1]);
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[2]);
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[3]);
+        score = 0;
     }
 
     void Update()
@@ -58,6 +38,33 @@ public class Hero : MonoBehaviour
                 Move(moveSpeed, housesToMove);
             }
         }
+    }
+
+    public void Move(float moveSpeed, int housesToMove)
+    {
+        this.housesToMove = housesToMove;
+        this.moveSpeed = moveSpeed;
+        nextHouse = Table.GetHouse(gameObject.GetComponent<Hero>().houseIndex).nextHouse;
+        heroWillMove = housesToMove > 0;
+
+        if (housesToMove == 0 && familiar.GetComponent<Familiar>().familiarWillMove == false) 
+        {
+            //CheckForEnemyFamiliar();
+            LoadQuestionFromHouseIntoQuestionCanvas(houseIndex);
+            requestsCamera = true;
+        }
+    }
+
+    private void LoadQuestionFromHouseIntoQuestionCanvas(int houseIndex)
+    {
+        Question question = Table.GetHouseQuestion(houseIndex);
+
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = question.prompt;
+
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[0]);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[1]);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[2]);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().AssignNewAnswer(question.answers[3]);
     }
 
     public void CheckForEnemyFamiliar()

@@ -594,6 +594,8 @@ MonoBehaviour:
   houseName: 
   houseIndex: 0
   questionCanvas: {fileID: 1502208571}
+  score: 0
+  lastPosition: {fileID: 0}
   requestsCamera: 0
   hasMessage: 0
   message: 
@@ -1128,6 +1130,8 @@ MonoBehaviour:
   houseName: 
   houseIndex: 0
   questionCanvas: {fileID: 559978522}
+  score: 0
+  lastPosition: {fileID: 0}
   requestsCamera: 0
   hasMessage: 0
   message: 
@@ -1157,7 +1161,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402289642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1140023548}
@@ -1165,8 +1169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1022, y: -526}
-  m_SizeDelta: {x: -2150, y: -1234}
+  m_AnchoredPosition: {x: -833.1001, y: -538.5}
+  m_SizeDelta: {x: -2365.8, y: -1115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402289644
 MonoBehaviour:
@@ -1193,13 +1197,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Red:'
+  m_Text: 
 --- !u!222 &402289645
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1905,6 +1909,7 @@ MonoBehaviour:
   Answer3Output: {fileID: 559978518}
   Answer4Output: {fileID: 559978517}
   turnIsOver: 0
+  gotAnswerRight: 2
 --- !u!114 &559978546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3604,8 +3609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1021, y: -451}
-  m_SizeDelta: {x: -2291, y: -1234}
+  m_AnchoredPosition: {x: -867.4, y: -451}
+  m_SizeDelta: {x: -2393.2002, y: -1234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119926514
 MonoBehaviour:
@@ -3632,13 +3637,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Blue:'
+  m_Text: 
 --- !u!222 &1119926515
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3768,6 +3773,7 @@ GameObject:
   - component: {fileID: 1140023547}
   - component: {fileID: 1140023546}
   - component: {fileID: 1140023545}
+  - component: {fileID: 1140023549}
   m_Layer: 5
   m_Name: CanvasMainCamera
   m_TagString: Untagged
@@ -3851,6 +3857,7 @@ RectTransform:
   - {fileID: 402289643}
   - {fileID: 752814183}
   - {fileID: 1300913213}
+  - {fileID: 1712831353}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -15.473001, y: -61.461002, z: 25.970001}
@@ -3859,6 +3866,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1140023549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140023544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c19d6aa43f9c465c9e88995e0977e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redScoreLabel: {fileID: 402289642}
+  blueScoreLabel: {fileID: 1119926512}
+  red: {fileID: 370213390}
+  blue: {fileID: 196913963}
 --- !u!1 &1198260184
 GameObject:
   m_ObjectHideFlags: 0
@@ -6321,6 +6344,7 @@ MonoBehaviour:
   Answer3Output: {fileID: 1502208567}
   Answer4Output: {fileID: 1502208566}
   turnIsOver: 0
+  gotAnswerRight: 2
 --- !u!114 &1502208595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6905,6 +6929,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1409632907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1712831352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1712831353}
+  - component: {fileID: 1712831355}
+  - component: {fileID: 1712831354}
+  m_Layer: 5
+  m_Name: ScoreLabels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1712831353
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712831352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 1140023548}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -1021.275, y: -488.84998}
+  m_SizeDelta: {x: -2058.55, y: -1099.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1712831354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712831352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Blue:
+
+
+    Red:'
+--- !u!222 &1712831355
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712831352}
+  m_CullTransparentMesh: 0
 --- !u!1 &1761600511
 GameObject:
   m_ObjectHideFlags: 0
