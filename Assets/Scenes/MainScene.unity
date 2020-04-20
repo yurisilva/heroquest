@@ -571,6 +571,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 11
+  question: {fileID: 0}
 --- !u!1 &196913963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
@@ -593,6 +594,7 @@ MonoBehaviour:
   nextHouse: {fileID: 0}
   houseName: 
   houseIndex: 0
+  questionCanvas: {fileID: 1502208571}
   requestsCamera: 0
   hasMessage: 0
   message: 
@@ -815,6 +817,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 1
+  question: {fileID: 0}
 --- !u!1001 &304331176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1104,6 +1107,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 10
+  question: {fileID: 0}
 --- !u!1 &370213390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 2871b4438c4ce4cf2ae35d540e94825b,
@@ -1126,6 +1130,7 @@ MonoBehaviour:
   nextHouse: {fileID: 0}
   houseName: 
   houseIndex: 0
+  questionCanvas: {fileID: 559978522}
   requestsCamera: 0
   hasMessage: 0
   message: 
@@ -1516,10 +1521,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 905424978}
     m_Modifications:
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -248.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1009.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2225371
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381518712552, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 215.8
+      objectReference: {fileID: 0}
     - target: {fileID: 421320381842977041, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_Name
-      value: CanvasQuestion
+      value: RedCanvasQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381842977041, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
@@ -1534,7 +1579,7 @@ PrefabInstance:
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.666667
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
@@ -1579,7 +1624,7 @@ PrefabInstance:
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.00000069538754
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
@@ -1589,12 +1634,12 @@ PrefabInstance:
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
@@ -1619,18 +1664,48 @@ PrefabInstance:
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0035802266
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0035802266
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0035802266
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977069, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 905424977}
+    - target: {fileID: 421320381842977069, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381842977069, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320382908664599, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -152.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5dac9ae3a6d4d99a699368597b923b, type: 3}
 --- !u!224 &559978516 stripped
@@ -1639,6 +1714,59 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 559978515}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382819457632, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 559978515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320383160942316, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 559978515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382220284484, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 559978515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382169125301, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 559978515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382908664598, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 559978515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &559978522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320381842977041, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 559978515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &559978523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559978522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886d8ae97fac149428692f0b159157da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionOutput: {fileID: 559978521}
+  Answer1Output: {fileID: 559978520}
+  Answer2Output: {fileID: 559978519}
+  Answer3Output: {fileID: 559978518}
+  Answer4Output: {fileID: 559978517}
 --- !u!1 &593310232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,6 +1876,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 6
+  question: {fileID: 0}
 --- !u!1 &602004931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +1986,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 2
+  question: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2188,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 10
+  question: {fileID: 0}
 --- !u!1 &711609746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,6 +2569,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 2
+  question: {fileID: 0}
 --- !u!1 &822221749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,6 +2873,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 3
+  question: {fileID: 0}
 --- !u!1 &919471096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,6 +2983,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 5
+  question: {fileID: 0}
 --- !u!1 &957568026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,6 +3016,7 @@ MonoBehaviour:
   blue: {fileID: 196913963}
   red: {fileID: 370213390}
   prompt: {fileID: 39411982}
+  buttonRollDice: {fileID: 752814184}
   dice: {fileID: 1300913217}
   mainCamera: {fileID: 963194227}
   redCamera: {fileID: 905424977}
@@ -3448,6 +3583,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 6
+  question: {fileID: 0}
 --- !u!1 &1140023544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3660,6 +3796,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 7
+  question: {fileID: 0}
 --- !u!1 &1209274151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,6 +4016,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 5
+  question: {fileID: 0}
 --- !u!1 &1235324486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,6 +4425,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 8
+  question: {fileID: 0}
 --- !u!1 &1300913212
 GameObject:
   m_ObjectHideFlags: 0
@@ -4530,6 +4669,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 1
+  question: {fileID: 0}
 --- !u!1 &1322312440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4639,6 +4779,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 8
+  question: {fileID: 0}
 --- !u!1 &1338632979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +5109,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 12
+  question: {fileID: 0}
 --- !u!1 &1395649802
 GameObject:
   m_ObjectHideFlags: 0
@@ -5359,6 +5501,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 3
+  question: {fileID: 0}
 --- !u!1 &1458154821
 GameObject:
   m_ObjectHideFlags: 0
@@ -5560,6 +5703,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 4
+  question: {fileID: 0}
 --- !u!1 &1476025482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5669,6 +5813,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
+  question: {fileID: 0}
 --- !u!1001 &1502208564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5689,7 +5834,12 @@ PrefabInstance:
     - target: {fileID: 421320381842977041, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
       propertyPath: m_Name
-      value: CanvasQuestion
+      value: BlueCanvasQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 421320381842977041, guid: aa5dac9ae3a6d4d99a699368597b923b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 421320381842977042, guid: aa5dac9ae3a6d4d99a699368597b923b,
         type: 3}
@@ -5834,6 +5984,59 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1502208564}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502208566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382819457632, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502208564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502208567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320383160942316, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502208564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502208568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382220284484, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502208564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502208569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382169125301, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502208564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502208570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320382908664598, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502208564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502208571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421320381842977041, guid: aa5dac9ae3a6d4d99a699368597b923b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502208564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1502208572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502208571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886d8ae97fac149428692f0b159157da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionOutput: {fileID: 1502208570}
+  Answer1Output: {fileID: 1502208569}
+  Answer2Output: {fileID: 1502208568}
+  Answer3Output: {fileID: 1502208567}
+  Answer4Output: {fileID: 1502208566}
 --- !u!1 &1512205800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5943,6 +6146,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
+  question: {fileID: 0}
 --- !u!1 &1554793278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6052,6 +6256,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 4
+  question: {fileID: 0}
 --- !u!1 &1558547942
 GameObject:
   m_ObjectHideFlags: 0
@@ -6251,6 +6456,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 7
+  question: {fileID: 0}
 --- !u!1 &1696593126
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,6 +6566,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 11
+  question: {fileID: 0}
 --- !u!4 &1710286550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2871b4438c4ce4cf2ae35d540e94825b,
@@ -6650,6 +6857,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 9
+  question: {fileID: 0}
 --- !u!1 &1972257312
 GameObject:
   m_ObjectHideFlags: 0
@@ -6759,6 +6967,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
+  question: {fileID: 0}
 --- !u!1 &1980678983
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,6 +7077,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 9
+  question: {fileID: 0}
 --- !u!1 &2004315337
 GameObject:
   m_ObjectHideFlags: 0
@@ -6977,6 +7187,7 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 12
+  question: {fileID: 0}
 --- !u!1 &2042387794
 GameObject:
   m_ObjectHideFlags: 0
@@ -7184,3 +7395,4 @@ MonoBehaviour:
   indexOneBased: 0
   nextHouse: {fileID: 0}
   familiarHouseUniqueIndex: 0
+  question: {fileID: 0}

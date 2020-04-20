@@ -7,6 +7,7 @@ public class GameMaster : MonoBehaviour
     public GameObject blue;
     public GameObject red;
     public GameObject prompt;
+    public Button buttonRollDice;
     public Dice dice;
 
     public Camera mainCamera;
@@ -51,15 +52,25 @@ public class GameMaster : MonoBehaviour
 
         if (red.GetComponent<Hero>().requestsCamera)
         {
-            StartCoroutine(ChangeCamera(CameraEnum.Red));
+            StartCoroutine(ChangeCameraFocusTo(red.name, CameraEnum.Red));
         }
     }
 
-    private IEnumerator ChangeCamera(CameraEnum cameraName)
+    private IEnumerator ChangeCameraFocusTo(string playerName, CameraEnum cameraName)
     {
-        red.GetComponent<Hero>().requestsCamera = false;
-        yield return new WaitForSeconds(2);
-        //mainCamera.enabled = false;
+        yield return new WaitForSeconds(1);
+
+        if (playerName == "RedHero")
+        {
+            red.GetComponent<Hero>().requestsCamera = false;
+            red.GetComponent<Hero>().questionCanvas.SetActive(true);
+        }
+        else
+        {
+            blue.GetComponent<Hero>().requestsCamera = false;
+            blue.GetComponent<Hero>().questionCanvas.SetActive(true);
+        }
+
         switch (cameraName)
         {
             case CameraEnum.Red:
@@ -82,6 +93,7 @@ public class GameMaster : MonoBehaviour
 
     public void MoveHero()
     {
+        buttonRollDice.enabled = false;
         playingHero.GetComponent<Hero>().GetComponent<Hero>().Move(moveSpeed, dice.diceResult);
     }
 

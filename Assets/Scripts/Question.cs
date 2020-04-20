@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class Question
+public class Question : MonoBehaviour
 {
     public string prompt;
     public List<Answer> answers;

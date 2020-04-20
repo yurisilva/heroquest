@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Hero : MonoBehaviour
     public House nextHouse;
     public string houseName;
     public int houseIndex;
+    public GameObject questionCanvas;
 
     public bool requestsCamera = false;
     public bool hasMessage = false;
@@ -32,7 +34,12 @@ public class Hero : MonoBehaviour
 
     private void GetQuestion(int houseIndex)
     {
-        Table.GetHouseQuestion(houseIndex);
+        Question question = Table.GetHouseQuestion(houseIndex);
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = question.prompt;
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[0].text;
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[1].text;
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[2].text;
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[3].text;
     }
 
     void Update()

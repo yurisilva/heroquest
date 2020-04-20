@@ -1,2 +1,28 @@
-Essa é a pergunta UM, resposta certa, resposta errada, resposta errada, resposta errada
-Essa é a pergunta DOIS, resposta certa, resposta errada, resposta errada, resposta errada
+What's the capital of Brazil?,Brasilia,Coimbra,Puerto Rico,Rio de Janeiro
+What's the color of the sky?,blue,red,green,orange
+Who invented gunpowder?, The Chinese,The Americans,The British,The Iranian
+How many Earths could fit inside the sun?,1.3 million,1300,3,10
+Which country consumes the most chocolate per capita?,Switzerland,England,Brazil,Japan
+In which country was the largest-known Tyrannosaurus rex skeleton found?,Canada,Japan,Mexico,Argentina
+How old is the Earth?,4.6 billion years old,10 billion years old, 5 thousand years, 2 thousand years
+Which country does opera singer Pavarotti come from?,Italy,Germany,Spain,Greece
+What is the only bird that can hover in the air and also ﬂy backwards?,Hummingbird,Finches,Starling,Chicken
+How is 77 represented in Roman numerals?,LXXVII,LLXVI,LXXVVI, LXVII
+How many sides has an octagon?,8,2,3,16
+Which city is said to have been founded by Romulus and Remus?,Rome,Athens,Sparta,Macedonia
+What do the numbers add up to on the opposite sides of a dice?,7,6,10,5
+In the zodiac, which animal is linked with Capricorn?,Goat,Tiger,Dragon,Crab
+In Spain what is the word for an afternoon nap?,Siesta,Fiesta,Nap,Sena
+Which substance is most used for pencil lead?,Graphite,Diamond,Coper,Wood
+In Shakespeare’s “Othello”, who is the female lead?,Desdemona,Juliet,Elizabeth,Dora
+Venetian blinds originated in which country?,Persia,The UK,India,Italy
+In Which century was 1658?,17th,16th,18th,15th
+How many stomachs does a cow have?,4,3,2,1
+Which city in the world has the largest population?,Shanghai,New York,Hong Kong,Sidney
+What currency is used in China?,Renminbi,Euro,Chinese Dollar,Penny
+What does an invertebrate not have?,Bones,Life,Water,Love
+Which musical direction means at ease, at a slow comfortable pace?,Adagio,Allegro,Pianissimo,Metal
+Which instrument usually has 47 strings?,Harp,Harmonica,Violin,Cello
+Which is the first month of the year to have exactly 30 days?,April,January,March,February
+What year did Mark Zuckerberg invent Facebook?,2004,2005,2000,2002
+Who does the Beast fall in love with?,Beauty,Cinderella,Snow White,Ariel

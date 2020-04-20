@@ -14,9 +14,9 @@ public static class Table
         InitializeFamiliarHouses();
     }
 
-    public static void GetHouseQuestion(int indexOneBased)
+    public static Question GetHouseQuestion(int indexOneBased)
     {
-        //todo: get house question when player lands;
+        return GetHouse(indexOneBased).GetComponent<House>().question;
     }
 
     private static void InitializeFamiliarHouses()
