@@ -14,10 +14,12 @@ public class Dice : MonoBehaviour
     public void RollDice()
     {
         dice.SetActive(true);
-        diceResult = list[i];
-        i++;
-        //diceResult = new System.Random().Next(1, 7);
-
+        diceResult = new System.Random().Next(1, 7);
         prompt.text = diceResult.ToString();
+
+        //Comment the line above and uncomment the next ones to test heroes being hit by familiars and losing points later on
+        //diceResult = list[i];
+        //i++;
+
     }
 }

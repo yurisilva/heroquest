@@ -36,10 +36,10 @@ public class Hero : MonoBehaviour
     {
         Question question = Table.GetHouseQuestion(houseIndex);
         gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().questionOutput.GetComponent<Text>().text = question.prompt;
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[0].text;
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[1].text;
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[2].text;
-        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponentInChildren<Text>().text = question.answers[3].text;
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer1Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[0]; 
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer2Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[1]; 
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer3Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[2]; 
+        gameObject.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().Answer4Output.GetComponent<Button>().GetComponent<AnswerButton>().answer = question.answers[3];
     }
 
     void Update()

@@ -7,5 +7,5 @@ public class QuestionCanvas : MonoBehaviour
     public GameObject Answer2Output;
     public GameObject Answer3Output;
     public GameObject Answer4Output;
-
+    public bool turnIsOver = false;
 }

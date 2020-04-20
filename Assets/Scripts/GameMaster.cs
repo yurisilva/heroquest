@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour
     public Button buttonRollDice;
     public Dice dice;
 
+    private Camera enabledCamera;
     public Camera mainCamera;
     public Camera redCamera;
     public Camera redFamiliarCamera;
@@ -31,7 +32,7 @@ public class GameMaster : MonoBehaviour
     private void LoadQuestions()
     {
         TextAsset textFile = Resources.Load<TextAsset>("questions");
-        QuestionHandler.AssignQuestionsToHouses(textFile);
+        QuestionHelper.AssignQuestionsToHouses(textFile);
     }
 
     void Update()
@@ -52,40 +53,56 @@ public class GameMaster : MonoBehaviour
 
         if (red.GetComponent<Hero>().requestsCamera)
         {
-            StartCoroutine(ChangeCameraFocusTo(red.name, CameraEnum.Red));
+            StartCoroutine(ChangeCameraFocusTo(CameraEnum.Red));
+        }
+
+        if (blue.GetComponent<Hero>().requestsCamera)
+        {
+            StartCoroutine(ChangeCameraFocusTo(CameraEnum.Red));
+        }
+
+        //if (red.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver || blue.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver)
+        if (playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver)
+        {
+            //red.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver = false;
+            //blue.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver = false;
+            playingHero.GetComponent<Hero>().questionCanvas.GetComponent<QuestionCanvas>().turnIsOver = false;
+            StartCoroutine(ChangeCameraFocusTo(CameraEnum.Main));
+            buttonRollDice.enabled = true;
+            TogglePlayer();
         }
     }
 
-    private IEnumerator ChangeCameraFocusTo(string playerName, CameraEnum cameraName)
+    private IEnumerator ChangeCameraFocusTo(CameraEnum cameraName)
     {
         yield return new WaitForSeconds(1);
-
-        if (playerName == "RedHero")
-        {
-            red.GetComponent<Hero>().requestsCamera = false;
-            red.GetComponent<Hero>().questionCanvas.SetActive(true);
-        }
-        else
-        {
-            blue.GetComponent<Hero>().requestsCamera = false;
-            blue.GetComponent<Hero>().questionCanvas.SetActive(true);
-        }
+        enabledCamera.enabled = false;
 
         switch (cameraName)
         {
             case CameraEnum.Red:
+                red.GetComponent<Hero>().requestsCamera = false;
+                red.GetComponent<Hero>().questionCanvas.SetActive(true);
+                enabledCamera = redCamera;
                 redCamera.enabled = true;
                 break;
             case CameraEnum.RedFamiliar:
+                enabledCamera = redFamiliarCamera;
                 redFamiliarCamera.enabled = true;
                 break;
             case CameraEnum.Blue:
+                blue.GetComponent<Hero>().requestsCamera = false;
+                blue.GetComponent<Hero>().questionCanvas.SetActive(true);
+                enabledCamera = blueCamera;
                 blueCamera.enabled = true;
                 break;
             case CameraEnum.BlueFamiliar:
+                enabledCamera = blueFamiliarCamera;
                 blueFamiliarCamera.enabled = true;
                 break;
             default:
+                red.GetComponent<Hero>().questionCanvas.SetActive(false);
+                blue.GetComponent<Hero>().questionCanvas.SetActive(false);
                 mainCamera.enabled = true;
                 break;
         }
@@ -149,6 +166,7 @@ public class GameMaster : MonoBehaviour
             cam.enabled = false;
         }
 
+        enabledCamera = mainCamera;
         mainCamera.enabled = true;
     }
 }
