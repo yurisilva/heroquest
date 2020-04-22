@@ -595,7 +595,7 @@ MonoBehaviour:
   houseIndex: 0
   questionCanvas: {fileID: 1502208571}
   score: 0
-  lastPosition: {fileID: 0}
+  lastHouseIndex: 0
   requestsCamera: 0
   hasMessage: 0
   message: 
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   houseIndex: 0
   questionCanvas: {fileID: 559978522}
   score: 0
-  lastPosition: {fileID: 0}
+  lastHouseIndex: 0
   requestsCamera: 0
   hasMessage: 0
   message: 
